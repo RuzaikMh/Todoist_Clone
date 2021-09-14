@@ -6,7 +6,7 @@
 
 ### Home
 
-> Displays all the tasks and colors based on priority level.
+> Displays all the tasks and colors tasks based on priority level.
 
 <img src="https://user-images.githubusercontent.com/43722260/133324737-16b168cd-23a5-4185-9435-4eae88df6f08.jpg" width="1000">
 
