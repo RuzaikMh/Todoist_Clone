@@ -8,7 +8,7 @@
 
 > Displays all the tasks and colors based on priority level.
 
-<img src="https://user-images.githubusercontent.com/43722260/133324737-16b168cd-23a5-4185-9435-4eae88df6f08.jpg" width="300">
+<img src="https://user-images.githubusercontent.com/43722260/133324737-16b168cd-23a5-4185-9435-4eae88df6f08.jpg" width="700">
 
 ### Create new task or update task using bottom sheet
 
