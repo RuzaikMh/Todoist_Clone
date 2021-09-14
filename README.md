@@ -14,10 +14,10 @@
 
 > User can add task name, Due date and select priority levels
 
-<img src="https://user-images.githubusercontent.com/43722260/133324748-77133b99-1972-4e2f-84fe-938040080656.jpg" width="300">
+<img src="https://user-images.githubusercontent.com/43722260/133324748-77133b99-1972-4e2f-84fe-938040080656.jpg" width="1000">
 
 
-<img src="https://user-images.githubusercontent.com/43722260/133324756-a522ad54-c7cf-4214-bfde-7553075f8753.jpg" width="300">
+<img src="https://user-images.githubusercontent.com/43722260/133324756-a522ad54-c7cf-4214-bfde-7553075f8753.jpg" width="1000">
 
 
 
