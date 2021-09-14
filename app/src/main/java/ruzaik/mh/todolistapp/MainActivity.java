@@ -3,7 +3,6 @@ package ruzaik.mh.todolistapp;
 import android.os.Bundle;
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,27 +10,18 @@ import android.util.Log;
 import android.view.View;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import ruzaik.mh.todolistapp.adapter.OnTodoClickListener;
 import ruzaik.mh.todolistapp.adapter.RecylerViewAdapter;
 import ruzaik.mh.todolistapp.databinding.ActivityMainBinding;
-import ruzaik.mh.todolistapp.model.Priority;
 import ruzaik.mh.todolistapp.model.Task;
 import ruzaik.mh.todolistapp.model.TaskViewModel;
-import ruzaik.mh.todolistapp.model.sharedViewModel;
+import ruzaik.mh.todolistapp.model.SharedViewModel;
 
 import android.view.Menu;
 import android.view.MenuItem;
-
-import java.util.Calendar;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements OnTodoClickListener {
 
@@ -41,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements OnTodoClickListen
     private RecylerViewAdapter recylerViewAdapter;
     private int counter;
     BottomSheetFragment bottomSheetFragment;
-    private sharedViewModel sharedViewModel;
+    private SharedViewModel sharedViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +55,10 @@ public class MainActivity extends AppCompatActivity implements OnTodoClickListen
         taskViewModel = new ViewModelProvider.AndroidViewModelFactory(
                 MainActivity.this.getApplication())
                 .create(TaskViewModel.class);
+
+        sharedViewModel = new ViewModelProvider(this)
+                .get(SharedViewModel.class);
+
 
         taskViewModel.getAllTasks().observe(this, tasks -> {
             recylerViewAdapter = new RecylerViewAdapter(tasks, this);
@@ -111,8 +105,10 @@ public class MainActivity extends AppCompatActivity implements OnTodoClickListen
     }
 
     @Override
-    public void onTodoClick(int adapterPosition, Task task) {
-        Log.d(TAG, "onTodoClick: " + task.getTask());
+    public void onTodoClick(Task task) {
+        sharedViewModel.setSelectItem(task);
+        sharedViewModel.setIsEdit(true);
+        showBottomSheetDialog();
     }
 
     @Override
